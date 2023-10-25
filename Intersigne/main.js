@@ -299,7 +299,7 @@
     function loadSavePoint() {
 
         try {
-            let savedState = window.localStorage.getItem('save-state');
+            let savedState = window.localStorage.getItem('save-intersigne-nt');
             if (savedState) {
                 story.state.LoadJson(savedState);
                 return true;
@@ -344,7 +344,7 @@
         let saveEl = document.getElementById("save");
         if (saveEl) saveEl.addEventListener("click", function(event) {
             try {
-                window.localStorage.setItem('save-state', savePoint);
+                window.localStorage.setItem('save-intersigne-nt', savePoint);
                 document.getElementById("reload").removeAttribute("disabled");
                 window.localStorage.setItem('theme', document.body.classList.contains("dark") ? "dark" : "");
             } catch (e) {
@@ -364,7 +364,7 @@
             removeAll("p");
             removeAll("img");
             try {
-                let savedState = window.localStorage.getItem('save-state');
+                let savedState = window.localStorage.getItem('save-intersigne-nt');
                 if (savedState) story.state.LoadJson(savedState);
             } catch (e) {
                 console.debug("Couldn't load save state");

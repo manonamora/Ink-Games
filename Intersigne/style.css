@@ -3,7 +3,7 @@
 body {
     font-family: 'Open Sans', sans-serif;
     font-weight: lighter;
-    background: white;
+    background: linear-gradient(to right, #ffc7c7 0%, rgb(255, 255, 255) 49%, #ffc7c7 100%);
     overflow: hidden;
 }
 
@@ -29,12 +29,19 @@ h2 {
     font-style: italic;
     font-family: sans-serif;
     font-weight: lighter;
-    color: #BBB;
+    color: #460000;
 }
 
 .header {
     padding-top: 3em;
     padding-bottom: 3em;
+}
+.header h1 {
+    text-transform: uppercase;
+    letter-spacing: 0.5em;
+    font-family: 'Open Sans', sans-serif;
+    font-weight: normal;
+    color: #3a0000;
 }
 
 /*
@@ -47,22 +54,28 @@ h2 {
 
 .written-in-ink {
     z-index: 3;
-    font-size: 9pt;
+    font-size: 15px;
+    letter-spacing: 0.3em;
     font-family: sans-serif;
     text-align: center;
     font-weight: 700;
     position: fixed;
     display: block;
-    width: 100%;
-    background: white;
+    width: 180px;
     transition: color 0.6s, background 0.6s;
     margin: 0;
     padding-top: 6px;
     padding-bottom: 6px;
     height: 14px;
     top: 0;
+    left: 5px;
 }
 
+.written-in-ink a {
+    font-family: monospace;
+    font-weight: normal;
+    color: #3a0000;
+}
 /* 
   Enables <iframe> support work on itch.io when using mobile iOS
 */
@@ -81,15 +94,14 @@ h2 {
     margin-top: 24px;
     background-size: cover;
     background-repeat: no-repeat;
+    scrollbar-color: transparent transparent;
 }
 
-@media screen and (max-width: 980px) {
-    .outerContainer {
-        margin-top: 44px;
-        background-size: cover;
-        background-repeat: no-repeat;
-    }
+::-webkit-scrollbar {
+    display: none
 }
+
+
 
 .container {
     display: block;
@@ -97,7 +109,6 @@ h2 {
     margin: 0 auto;
     padding: 20px;
     padding-top: 4em;
-    background: white;
 }
 
 .switched .container {
@@ -106,14 +117,14 @@ h2 {
 
 p {
     font-size: 13pt;
-    color: #888;
+    color: #222;
     line-height: 1.7em;
     font-weight: lighter;
 }
 
 a {
     font-weight: 700;
-    color: #b97c2c;
+    color: #460000;
     font-family: sans-serif;
     transition: color 0.6s;
     text-decoration: none;
@@ -129,10 +140,8 @@ strong {
     font-weight: bold;
 }
 
-img {
-    display: block;
-    margin: 0 auto;
-    max-width: 100%;
+hr {
+    color: #460000;
 }
 
 .container .hide {
@@ -155,6 +164,7 @@ img {
 .choice {
     text-align: center;
     line-height: 1.7em;
+    margin: 0;
 }
 
 /* 
@@ -168,7 +178,9 @@ img {
   Class applied to choice links
 */
 .choice a {
-    font-size: 15pt;
+    font-size: 14pt;
+    font-weight: normal;
+    font-family: monospace;
 }
 
 /* 
@@ -187,13 +199,17 @@ img {
     z-index: 4;
     font-size: 9pt;
     text-align: center;
+    text-transform: uppercase;
     padding-bottom: 6px;
     position: fixed;
-    right: 14px;
-    top: 4px;
+    left: 5px;
+    top: 22px;
     user-select: none;
-    background: white;
     transition: color 0.6s, background 0.6s;
+    cursor: pointer;
+}
+#controls a {
+    color: #3a0000;
 }
 
 #controls [disabled] {
@@ -204,40 +220,29 @@ img {
     content: " | ";
 }
 
-@media screen and (max-width: 980px) {
-    #controls {
-        z-index: 2;
-        padding-top: 24px;
-        top: 0;
-        left: 0;
-        right: 0;
-    }
-}
-
 /* 
   Dark Theme (Added in Inky 0.10.0)
     # theme: dark
 */
 
 body.dark {
-    background: black;
+    background: linear-gradient(to right, #0b0010 0%, rgb(0, 0, 0) 49%, #0b0010 100%);
     color: white;
 }
 
+.dark p {
+    color: #BBB;
+}
+
+.dark h1 {
+    color: lightblue;
+}
 .dark h2 {
-    color: #666;
-}
-
-.dark .container {
-    background: black;
-}
-
-.dark .written-in-ink {
-    background: black;
+    color: #add8e691;
 }
 
 .dark a {
-    color: #cc8f1a;
+    color: lightblue;
     transition: color 0.6s;
 }
 
@@ -246,7 +251,21 @@ body.dark {
 }
 
 .dark strong {
-    color: white;
+    color: #bbb;
+}
+
+.dark .written-in-ink a {
+    color: #add8e691;
+}
+.dark .written-in-ink a:hover {
+    color: wheat;
+}
+
+.dark #controls a {
+    color: #add8e691;
+}
+.dark #controls a:hover {
+    color: wheat;
 }
 
 .dark #controls [disabled] {
@@ -257,6 +276,32 @@ body.dark {
     color: white;
 }
 
-.dark #controls {
-    background: black;
+.dark hr {
+    color: lightblue;
+}
+
+@media screen and (max-width: 500px) {
+    .header h1 {
+        letter-spacing: 0.1em;
+    }
+}
+
+@media screen and (max-width: 980px) {
+    .outerContainer {
+        margin-top: 44px;
+        background-size: cover;
+        background-repeat: no-repeat;
+    }
+
+    #controls {
+        z-index: 2;
+        padding-top: 24px;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+
+    .written-in-ink {
+        width: 100%;
+    }
 }
